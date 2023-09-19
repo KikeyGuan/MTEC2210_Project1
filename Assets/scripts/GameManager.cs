@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void spwancoin(){
         //Vector3 is the position. Vector3 name = new Vector3(0,0,0)
-        Vector3 pos = new Vector3(Random.Range(-heightvalue, heightvalue),Random.Range(-4, 4),0); //Ramdom.Range(min number, max number)
+        Vector3 pos = new Vector3(Random.Range(-heightvalue, widthvalue),Random.Range(-4, 4),0); //Ramdom.Range(min number, max number)
         GameObject ijnuhbclone = Instantiate(ijnuhb,pos, Quaternion.identity); // (object,position,rotation)
 
         coin coinScript = ijnuhbclone.GetComponent<coin>();

@@ -16,7 +16,7 @@ public class coin : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         changecolor(Random.ColorHSV()); //give random color 1
-        changevalue(Random.Range(1, 9));
+        changevalue(Random.Range(1, 3));
 
     }
 
@@ -24,9 +24,21 @@ public class coin : MonoBehaviour
     {
         sr.color = c; //set color to random color 2
     }
+
     public void changevalue(int v)
     {
         coinvalue = v;
         valuetext.text = coinvalue.ToString();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "layer")
+        {
+            collision.gameObject.GetComponent<playermove>().IncrementScore(coinvalue);
+            //check collision, check object hit, get from script, IncrementScore(send the value over)
+            Destroy(gameObject);
+        }
+        
     }
 }
